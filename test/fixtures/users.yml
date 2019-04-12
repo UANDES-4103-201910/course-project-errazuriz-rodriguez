@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: 
+  lastname: 
+  nick: 
+  phone: 
+  email: 
+  country: 
+  city: 
+  image: 
+  admin: 
+  superadmin: 
+  blacklist: 
+  banned: 
+  deleted: false
+
+two:
+  name: 
+  lastname: 
+  nick: 
+  phone: 
+  email: 
+  country: 
+  city: 
+  image: 
+  admin: 
+  superadmin: 
+  blacklist: 
+  banned: 
+  deleted: false
