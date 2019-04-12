@@ -14,9 +14,9 @@ class UsersTest < ApplicationSystemTestCase
     visit users_url
     click_on "New User"
 
-    fill_in "Admin", with: @user.admin
-    fill_in "Banned", with: @user.banned
-    fill_in "Blacklist", with: @user.blacklist
+    check "Admin" if @user.admin
+    check "Banned" if @user.banned
+    check "Blacklist" if @user.blacklist
     fill_in "City", with: @user.city
     fill_in "Country", with: @user.country
     check "Deleted" if @user.deleted
@@ -26,7 +26,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "Name", with: @user.name
     fill_in "Nick", with: @user.nick
     fill_in "Phone", with: @user.phone
-    fill_in "Superadmin", with: @user.superadmin
+    check "Superadmin" if @user.superadmin
     click_on "Create User"
 
     assert_text "User was successfully created"
@@ -37,9 +37,9 @@ class UsersTest < ApplicationSystemTestCase
     visit users_url
     click_on "Edit", match: :first
 
-    fill_in "Admin", with: @user.admin
-    fill_in "Banned", with: @user.banned
-    fill_in "Blacklist", with: @user.blacklist
+    check "Admin" if @user.admin
+    check "Banned" if @user.banned
+    check "Blacklist" if @user.blacklist
     fill_in "City", with: @user.city
     fill_in "Country", with: @user.country
     check "Deleted" if @user.deleted
@@ -49,7 +49,7 @@ class UsersTest < ApplicationSystemTestCase
     fill_in "Name", with: @user.name
     fill_in "Nick", with: @user.nick
     fill_in "Phone", with: @user.phone
-    fill_in "Superadmin", with: @user.superadmin
+    check "Superadmin" if @user.superadmin
     click_on "Update User"
 
     assert_text "User was successfully updated"
