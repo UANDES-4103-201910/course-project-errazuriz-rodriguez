@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   resources :posts
   resources :users
   
+  get '/users', to: 'users#index'
+
+  root to: 'users#index'
+
   post '/users', to: 'users#create'
   post '/posts', to: 'posts#create'
 
