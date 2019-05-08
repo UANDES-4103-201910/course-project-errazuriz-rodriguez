@@ -13,7 +13,7 @@ class PostsController < ApplicationController
     set_post
     @user = User.all
     @re = @post.id
-    @comments = Comment.all#Comment.find_by(post_id: @post.id)
+    @comments = Comment.all.where(post_id: @re).order(:created_at)#Comment.find_by(post_id: @post.id)
     #hay que inicialixzar variables con todos los datos que necesiten los post de la base de datos 
     # como likes, dislikes, imagenes, archivos, y comentarios
   end

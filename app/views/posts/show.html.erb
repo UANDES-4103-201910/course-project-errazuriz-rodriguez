@@ -98,14 +98,17 @@ footer {
 
 <footer>
   <p>Comments</p>
-  <%= @re %>
-  <% @comments.each do |cm| %>
-    <tr>
-      <td><%= link_to @user.find_by(id: cm.user_id).name, @user.find_by(id: cm.user_id)%>:  </td>
-      <td><%= cm.created_at %>:  </td>
-      <td><%= cm.comment %></td>
-    </tr>
-  <% end %>
+  <table>
+    <tbody>
+      <% @comments.each do |cm| %>
+        <tr>
+          <td><%= link_to @user.find_by(id: cm.user_id).name, @user.find_by(id: cm.user_id)%>:  </td>
+          <td><%= cm.created_at %>:  </td>
+          <td><%= cm.comment %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </footer>
 
 </body>
