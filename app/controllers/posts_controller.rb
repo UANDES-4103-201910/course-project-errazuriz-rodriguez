@@ -10,7 +10,10 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    set_post
     @user = User.all
+    @re = @post.id
+    @comments = Comment.all#Comment.find_by(post_id: @post.id)
     #hay que inicialixzar variables con todos los datos que necesiten los post de la base de datos 
     # como likes, dislikes, imagenes, archivos, y comentarios
   end
@@ -62,6 +65,15 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def likes
+    #revisar si el usuario ya dio like o dislike, si no ha dado a ninguno, nueva instancia de like
+    #si ya existia cambiar el boolean al contrario
+  end 
+
+  def dislike
+    #idem al anterior
   end
 
   private

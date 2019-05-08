@@ -70,37 +70,42 @@ footer {
 </head>
 <body>
 <header>
-  <h2><%= @post.title %><sub><small><small>  <%= link_to '  By  ' + @user.find_by(id: @post.user_id).name , @user.find_by(id: @post.user_id) %></small></small></sub></h2>
+  <h2><%= @post.title %>     <sub><small><small><mark> <%= link_to 'By  ' + @user.find_by(id: @post.user_id).name , @user.find_by(id: @post.user_id) %></mark></small></small></sub></h2>
 </header>
 
 <section>
   <nav>
     <ul>
-      <li><a href="#">London</a></li>
-      <li><a href="#">Paris</a></li>
+      <li><a href="#">Like</a></li><li>/</li><li><a href="#">Dislike</a></li>
+      <li><a href="#">Flag as Inappropriate</a></li>
       <li><a href="#">Tokyo</a></li>
     </ul>
   </nav>
   
   <article>
-    <h1>London</h1>
-    <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+    <h1>Complaint</h1>
+    <%= @post.description %>
   </article>
   <article>
-    <h1>Paris</h1>
-    <p>Paris is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+    <h1>Image</h1>
+    <%= @post.image %>
   </article>
   <article>
-    <h1>Def</h1>
-    <p>Defs is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-    <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
+    <h1>Location</h1>
+    <%= @post.location %>
   </article>
 </section>
 
 <footer>
-  <p>Footer</p>
+  <p>Comments</p>
+  <%= @re %>
+  <% @comments.each do |cm| %>
+    <tr>
+      <td><%= link_to @user.find_by(id: cm.user_id).name, @user.find_by(id: cm.user_id)%>:  </td>
+      <td><%= cm.created_at %>:  </td>
+      <td><%= cm.comment %></td>
+    </tr>
+  <% end %>
 </footer>
 
 </body>
