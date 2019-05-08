@@ -10,6 +10,9 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @user = User.all
+    #hay que inicialixzar variables con todos los datos que necesiten los post de la base de datos 
+    # como likes, dislikes, imagenes, archivos, y comentarios
   end
 
   # GET /posts/new
