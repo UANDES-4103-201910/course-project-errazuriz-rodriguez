@@ -33,7 +33,7 @@ nav {
   -ms-flex: 1;
   flex: 1;
   background: #ccc;
-  padding: 20px;
+  padding: 90 px;
 }
 
 /* Style the list inside the menu */
@@ -76,14 +76,15 @@ footer {
 <section>
   <nav>
     <ul>
-      <li><a href="#">Like</a></li><li>/</li><li><a href="#">Dislike</a></li>
+      <a href="#">Like</a>/<a href="#">Dislike</a>
       <li><a href="#">Flag as Inappropriate</a></li>
-      <li><a href="#">Tokyo</a></li>
     </ul>
+    <p>Likes: <%= @likes%></p>
+    <p>DisLikes: <%= @dislikes%></p>
   </nav>
   
   <article>
-    <h1>Complaint</h1>
+    <h1>Description</h1>
     <%= @post.description %>
   </article>
   <article>
@@ -95,7 +96,12 @@ footer {
     <%= @post.location %>
   </article>
 </section>
-
+<section>
+  <h1>Files</h1>
+  <% @files.each do |f|%>
+    <article><%= f.file %></article>
+  <% end %>
+</section>
 <footer>
   <p>Comments</p>
   <table>
@@ -113,53 +119,3 @@ footer {
 
 </body>
 </html>
-
-<p id="Title"><%= @post.title %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user_id %>
-</p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @post.image %>
-</p>
-
-<p>
-  <strong>Location:</strong>
-  <%= @post.location %>
-</p>
-
-<p>
-  <strong>Solved:</strong>
-  <%= @post.solved %>
-</p>
-
-<p>
-  <strong>Open:</strong>
-  <%= @post.open %>
-</p>
-
-<p>
-  <strong>Dumpster:</strong>
-  <%= @post.dumpster %>
-</p>
-
-<p>
-  <strong>Deleted:</strong>
-  <%= @post.deleted %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
