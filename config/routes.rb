@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   resources :users
   
   get '/users', to: 'users#index'
-  get '/blacklist', to: 'blacklists#blacklist'
-  get '/adminreg', to: 'adminregs#adminreg'
-  get '/changepassword', to: 'changepasswords#changepassword'
-  get '/dumpster', to: 'dumpsters#dumpster'
+  get '/blacklist', to: 'blacklists#blacklist'##########
+  get '/adminreg', to: 'adminregs#adminreg'###########
+  get '/changepassword', to: 'changepasswords#changepassword'###############
+  get '/dumpster', to: 'dumpsters#dumpster'####################
   get '/editprofile', to: 'editprofiles#editprofile'
   get '/home', to: 'homes#home'##########
   get '/passrec', to: 'passrecs#passrec'########
@@ -20,9 +20,9 @@ Rails.application.routes.draw do
   get '/useradmin', to: 'useradmins#useradmin'###########
   get '/userhome', to: 'userhomes#userhome'###########
   get '/userprofile', to: 'userprofiles#userprofile'#!!!!!!!!!!!!!!!!!!!!
-  get '/adminsystem', to: 'adminsystems#adminsystem'
-  get '/messages/conversation', to: 'messages#conversation'
-  get '/messages', to: 'messages#chats'
+  get '/adminsystem', to: 'adminsystems#adminsystem'##############
+  get '/messages/conversation', to: 'messages#conversation'##########
+  get '/messages', to: 'messages#chats'#############
 
 
 
