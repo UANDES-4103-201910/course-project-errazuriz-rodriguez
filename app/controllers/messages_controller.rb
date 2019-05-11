@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     def conversation
         #muestra mensajes anteriores y da la posibilidad  de escribir uno nuevo
         #en caso de enviar uno nuevo, llamar a create
-        
+        @usr = User.all
         @u1 = 1#por mientras, se ingresa el id del usuario actual
         u2 = 2#va con @selected chat de chats, chat lleva a conversation, con un click listener
         @message = Message.where(:sender_id => @u1, :receiver_id => u2).or(Message.where(:sender_id => u2, :receiver_id => @u1)).order(:created_at)# OR sender_id = u2, receiver_id = u1).order(:created_at)
