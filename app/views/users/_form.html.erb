@@ -11,52 +11,115 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="row">
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-3">
+      <div class="field">
+        <%= form.label :Name %>
+        <%= form.text_field :name %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="field">
+        <%= form.label :lastname %>
+        <%= form.text_field :lastname %>
+      </div>
+    </div>
+
+    <div class="col-md-3"></div>
+  
   </div>
 
-  <div class="field">
-    <%= form.label :lastname %>
-    <%= form.text_field :lastname %>
+  <div class="row">
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-3">
+      <div class="field">
+        <%= form.label :Nick %>
+        <%= form.text_field :nick %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="field">
+        <%= form.label :Password %>
+        <%= form.text_field :password %>
+      </div>
+    </div>
+    
+    <div class="col-md-3"></div>
+  
   </div>
 
-  <div class="field">
-    <%= form.label :nick %>
-    <%= form.text_field :nick %>
+  <div class="row">
+
+      <div class="col-md-3"></div>
+
+      <div class="col-md-3">
+        <div class="field">
+          <%= form.label :Phone %>
+          <%= form.text_field :phone %>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="field">
+          <%= form.label :Email %>
+          <%= form.text_field :email %>
+        </div>
+      </div>
+      
+      <div class="col-md-3"></div>
+  
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+  <div class="row">
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-3">
+      <div class="field">
+        <%= form.label :Country %>
+        <%= form.text_field :country %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="field">
+        <%= form.label :City %>
+        <%= form.text_field :city %>
+      </div>
+    </div>
+    
+    <div class="col-md-3"></div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-3"></div>
+
+    <div class="col-md-3">
+      <div class="field">
+      <%= form.label :image %>
+      <%= form.text_field :image %>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      
+    </div>
+    
+    <div class="col-md-3"></div>
+
   </div>
   
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.number_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country %>
-  </div>
-
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
+    
   </div>
 <% end %>
