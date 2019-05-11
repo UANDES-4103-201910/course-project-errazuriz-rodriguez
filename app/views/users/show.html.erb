@@ -40,30 +40,6 @@
   <%= @user.image %>
 </p>
 
-<p>
-  <strong>Admin:</strong>
-  <%= @user.admin %>
-</p>
-
-<p>
-  <strong>Superadmin:</strong>
-  <%= @user.superadmin %>
-</p>
-
-<p>
-  <strong>Blacklist:</strong>
-  <%= @user.blacklist %>
-</p>
-
-<p>
-  <strong>Banned:</strong>
-  <%= @user.banned %>
-</p>
-
-<p>
-  <strong>Deleted:</strong>
-  <%= @user.deleted %>
-</p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
