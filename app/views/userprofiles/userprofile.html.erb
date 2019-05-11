@@ -7,11 +7,11 @@
 <body>
     <titulo>User 1 - Profile</titulo>
         <div align="right">
-    <input type="button" value="Logout" />
+    
     </div>
     <hr>
     <div class= "r">
-        <button class="button" onclick="window.location.href='users/1/edit'">Edit</button>
+        <button class="btn btn-primary btn-md" onclick="window.location.href='users/1/edit'">Edit</button>
     </div>
     <br>
     <br>
@@ -40,22 +40,20 @@
     Country: 
         <%= @usr.country %><br>
     <br>
-    <a>Bio</a>
+    <p>Bio</p>
     <br>
         <textarea rows="5" cols="60">
          </textarea>
     <br>
         <br>
-    <button class="button" onclick="window.location.href='posts'">View Posts</button>
+    <button class="btn btn-primary btn-md" onclick="window.location.href='posts'">View Posts</button>
     <br>
     <br>
-    <button class="button" onclick="window.location.href=''">User Activity</button>
+    <button class="btn btn-primary btn-md" onclick="window.location.href=#">User Activity</button>
     <br>
     <br>
     </div>
-    <div class="r">
-        <button class="button">Back</button>
-    </div>
+    
     
 </body>
 </html>

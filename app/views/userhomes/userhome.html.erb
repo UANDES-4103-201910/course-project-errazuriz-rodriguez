@@ -6,22 +6,26 @@
 </head>
 <body>
     <titulo>Hello, User 1</titulo>
-    <div align="right">
-        <input type="button" value="Logout" />
-    </div>
+    
     <hr>
     
     <div align="right">
-        <input type="button" onclick="window.location.href='userprofile'" value="Profile" />
+    <button class="btn btn-primary btn-md" onclick="window.location.href='userprofile'">Profile</button>
     </div>
     <div align="center">
-        <input type="button" onclick="window.location.href='posts/new'" value="New Post" />
+    <button class="btn btn-primary btn-md" onclick="window.location.href='posts/new'">New Post</button>
     </div>
     <br>
     
     <br>
-    <div align="center">
-        <input type="text" placeholder="Search User / Post...">
+    <div class="row">
+      <div class="col-md-5"></div>
+      <div class="col-md-2">
+        <div align="center">
+            <input type="text" class= "form-control" placeholder="Search User / Post...">
+        </div>
+      </div>
+      <div class="col-md-5"></div>
     </div>
     <br>
     <table align="center">
@@ -33,24 +37,24 @@
         
       </tr>
       <tr>
-        <td>User 1</td>
+        <td>Luis</td>
         <td>33</td>
-        <td>An Intresting Title</td>
-        <td><input type="button" onclick="window.location.href='posts/1'" value="View" /></td>
+        <td>The Same</td>
+        <td><button class="btn btn-primary btn-md" onclick="window.location.href='posts/1'">View</button></td>
         
       </tr>
       <tr>
         <td>User 1</td>
         <td>45</td>
         <td>A Meh Title</td>
-        <td><input type="button" value="View" />
+        <td><button class="btn btn-primary btn-md" onclick="window.location.href=#">View</button></td>
         
       </tr>
       <tr>
         <td>User 3</td>
         <td>8</td>
         <td>Im So Tired</td>
-        <td><input type="button" value="View" />
+        <td><button class="btn btn-primary btn-md" onclick="window.location.href=#">View</button></td>
         
       </tr>
     </table>

@@ -6,12 +6,10 @@
 </head>
 <body>
     <titulo>User Administration</titulo>
-    <div align="right">
-        <input type="button" value="Logout" />
-    </div>
+    
     <hr>
     <div align="right">
-        <input type="button" onclick="window.location.href='users/new'" value="New User" />
+    <button class="btn btn-primary btn-md" onclick="window.location.href='users/new'">New User</button>
     </div>
     <br>
     <table align="center">
@@ -26,28 +24,26 @@
         <td>User 1</td>
         <td>User</td>
         <td>3/3/2019</td>
-        <td><input type="button" onclick="window.location.href='/changepassword'" value="Change" /></td>
-        <td><input type="button" value="Delete" /></td>
+        <td><button class="btn btn-primary btn-md" onclick="window.location.href='changepassword'">Change</button></td>
+        <td><button class="btn btn-danger btn-md" onclick="">Delete</button></td>
       </tr>
       <tr>
         <td>User 2</td>
         <td>User</td>
         <td>22/5/2015</td>
-        <td><input type="button" onclick="window.location.href='/changepassword'" value="Change" /></td>
-        <td><input type="button" value="Delete" /></td>
+        <td><button class="btn btn-primary btn-md" onclick="window.location.href='changepassword'">Change</button></td>
+        <td><button class="btn btn-danger btn-md" onclick="">Delete</button></td>
       </tr>
       <tr>
         <td>User 3</td>
         <td>User</td>
         <td>5/10/2016</td>
-        <td><input type="button" onclick="window.location.href='/changepassword'" value="Change" /></td>
-        <td><input type="button" onclick="window.location.href='/changepassword'" value="Delete" /></td>
+        <td><button class="btn btn-primary btn-md" onclick="window.location.href='changepassword'">Change</button></td>
+        <td><button class="btn btn-danger btn-md" onclick="">Delete</button></td>
       </tr>
     </table>
     <br>
-    <div class="r">
-        <button class="button">Back</button>
-    </div>
 </body>
+
  
 </html>
