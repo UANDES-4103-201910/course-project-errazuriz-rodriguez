@@ -28,7 +28,7 @@ Rails.application.routes.draw do
 
 
 
-  root to: 'users#index'
+  root to: 'homes#home'
 
   post '/users', to: 'users#create'
   post '/posts', to: 'posts#create'
