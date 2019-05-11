@@ -12,7 +12,7 @@ TC{
 }
 
 div.l {
-  text-align: left;
+  text-align: right;
 }
 
 div.c {
@@ -69,4 +69,28 @@ box {
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+}
+.bttn1{
+  border: square;
+  width: auto;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+  border-color: darkslategrey;
+  border-radius: 4px;
+  margin-left: 4px; 
+}
+
+.bttn2{
+  border: square;
+  width: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+  border-color: darkslategrey;
+  border-radius: 4px;
+  margin-right: 4px;
+  background-color: antiquewhite;
+  text-align: right;
 }
