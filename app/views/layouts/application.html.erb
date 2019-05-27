@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Example</title>
+    <title>The Complait</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="/css/style.css">
 
     <div class= 'l'>
-      <input type="button" class="bttn1" onclick="window.location.href='/userhome'" value="Home" /> <input type="button" onclick="window.location.href='/home'" class="bttn2" value="Logout" />
+      <input type="button" class="bttn1" onclick="window.location.href='/userhome'" value="Home" /> 
+      <% if user_signed_in?%>
+        <%= link_to 'Log Out', destroy_user_session_path(), :method => :delete, class: "but1" %>
+      <% else %>
+        <%= link_to 'Log In', '/users/sign_in', class: "but1"%>
+      <% end %>
     </div>
   </head>
 

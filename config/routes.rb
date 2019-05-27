@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  devise_for :users do 
+    get '/users/sign_out' => 'devise/sessions#destroy' 
+    get '/users/sign_in' => 'devise/sessions#create'
+    get '/users/sign_up' => 'devise/registrations#create'
+  end
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'

@@ -31,30 +31,17 @@
     <table align="center">
       <tr>
         <th>User</th>
-        <th>Post ID</th>
         <th>Post Title</th>
         <th>Action</th>
         
-      </tr>
-      <tr>
-        <td>Luis</td>
-        <td>33</td>
-        <td>The Same</td>
-        <td><button class="btn btn-primary btn-md" onclick="window.location.href='posts/1'">View</button></td>
         
       </tr>
       <tr>
-        <td>User 1</td>
-        <td>45</td>
-        <td>A Meh Title</td>
-        <td><button class="btn btn-primary btn-md" onclick="window.location.href=#">View</button></td>
-        
-      </tr>
-      <tr>
-        <td>User 3</td>
-        <td>8</td>
-        <td>Im So Tired</td>
-        <td><button class="btn btn-primary btn-md" onclick="window.location.href=#">View</button></td>
+        <% @posts.each do |p|%>
+          <td><%= User.find_by(id: p.user_id).name%></td>
+          <td><%= p.title %></td>
+          <td><%= link_to 'View', p, class: "btn btn-primary btn-md"%></td>
+        <% end %>
         
       </tr>
     </table>

@@ -35,7 +35,10 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    @post.open = true
+    @post.dumpster = false
+    @post.deleted = false
+    @post.solved = false
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
