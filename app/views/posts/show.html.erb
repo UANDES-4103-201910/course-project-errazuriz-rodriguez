@@ -15,7 +15,7 @@
 <section>
   <nav>
     <ul>
-      <a href="#">Like</a>/<a href="#">Dislike</a>
+      <%= link_to "Like", :action => :likes%>/<a href="#">Dislike</a>
       <li><a href="#">Flag as Inappropriate</a></li>
     </ul>
     <p>Likes: <%= @likes%></p>

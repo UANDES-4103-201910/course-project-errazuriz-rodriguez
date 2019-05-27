@@ -34,7 +34,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(post_params.merge(:user_id => current_user.id))
     @post.open = true
     @post.dumpster = false
     @post.deleted = false
@@ -77,9 +77,12 @@ class PostsController < ApplicationController
   def likes
     #revisar si el usuario ya dio like o dislike, si no ha dado a ninguno, nueva instancia de like
     #si ya existia cambiar el boolean al contrario
+    val = UserLikePost.find_by(user_id: current_user.id)
+    if val != nil
+      
   end 
 
-  def dislike
+  def dislikes
     #idem al anterior
   end
 

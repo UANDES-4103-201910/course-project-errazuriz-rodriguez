@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
     <titulo>Hello, User 1</titulo>
@@ -38,9 +37,9 @@
       </tr>
       <tr>
         <% @posts.each do |p|%>
-          <td><%= User.find_by(id: p.user_id).name%></td>
+          <tr><td><%= User.find_by(id: p.user_id).name%></td>
           <td><%= p.title %></td>
-          <td><%= link_to 'View', p, class: "btn btn-primary btn-md"%></td>
+          <td><%= link_to 'View', p, class: "btn btn-primary btn-md"%></td></tr>
         <% end %>
         
       </tr>
