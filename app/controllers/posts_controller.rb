@@ -75,15 +75,36 @@ class PostsController < ApplicationController
   end
 
   def likes
+    @pos = params[:post]
     #revisar si el usuario ya dio like o dislike, si no ha dado a ninguno, nueva instancia de like
     #si ya existia cambiar el boolean al contrario
-    val = UserLikePost.find_by(user_id: current_user.id)
-    if val != nil
-      
+    @val = UserLikePost.find_by(user_id: current_user.id, post_id: @pos)
+    if @val != nil
+      if @val.like 
+        flash[:failure] = "Already Liked"
+      else
+        @val.update(like: true)
+      end
+    else
+      UserLikePost.create(user_id: current_user.id, like: true, post_id: @pos)
+    end
+    redirect_to Post.find(@pos)
   end 
 
   def dislikes
     #idem al anterior
+    @pos = params[:post]
+    @val = UserLikePost.find_by(user_id: current_user.id, post_id: @pos)
+    if @val != nil
+      if !@val.like 
+        flash[:failure] = "Already Disliked"
+      else
+        @val.update(like: false)
+      end
+    else
+      UserLikePost.create(user_id: current_user.id, like: false, post_id: @pos)
+    end
+    redirect_to Post.find(@pos)
   end
 
   private

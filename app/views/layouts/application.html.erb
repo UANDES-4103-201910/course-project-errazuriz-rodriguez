@@ -9,11 +9,16 @@
     <link rel="stylesheet" href="/css/style.css">
 
     <div class= 'l'>
+      <div class = "c">  
+        <% flash.each do |key, message|%>
+          <div class = key><%= message%></div>
+        <% end %>
+      </div>
       <input type="button" class="bttn1" onclick="window.location.href='/userhome'" value="Home" /> 
       <% if user_signed_in?%>
-        <%= link_to 'Log Out', destroy_user_session_path(), :method => :delete, class: "but1" %>
+        <%= button_to 'Log Out', destroy_user_session_path(), :method => :delete, class: "bttn1" %>
       <% else %>
-        <%= link_to 'Log In', '/users/sign_in', class: "but1"%>
+        <%= button_to 'Log In', '/users/sign_in', class: "bttn1"%>
       <% end %>
     </div>
   </head>

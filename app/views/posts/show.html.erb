@@ -15,7 +15,7 @@
 <section>
   <nav>
     <ul>
-      <%= link_to "Like", :action => :likes%>/<a href="#">Dislike</a>
+      <%= link_to "Like", likes_path(:post => @post.id) %>/<%= link_to "Dislike", dislikes_path(:post => @post.id) %>
       <li><a href="#">Flag as Inappropriate</a></li>
     </ul>
     <p>Likes: <%= @likes%></p>
@@ -44,7 +44,7 @@
 </section>
 <footer>
   <h1>Comments</h1>
-  <table>
+  <table class = "scroll">
     <tbody>
       <% @comments.each do |cm| %>
         <tr>
@@ -55,6 +55,13 @@
       <% end %>
     </tbody>
   </table>
+  <li class = "l"> Add new comment.</li>
+  <div>
+    <% form_for [@post] do |f|%>
+      <%= f.text_area :user_id %>
+      <%= f.submit "Enviar" %>
+    <% end %>
+  </div>
 </footer>
 
 </body>

@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   resources :posts
   resources :users
   
+  get '/likes', to: 'posts#likes'
+  get '/dislikes', to: 'posts#dislikes'
+
   get '/users', to: 'users#index'
   get '/blacklist', to: 'blacklists#blacklist'##########
   get '/adminreg', to: 'adminregs#adminreg'###########
