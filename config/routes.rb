@@ -10,11 +10,16 @@ Rails.application.routes.draw do
   get 'session/new'
   get 'session/create'
   get 'session/destroy'
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   resources :users
   
   get '/likes', to: 'posts#likes'
   get '/dislikes', to: 'posts#dislikes'
+  post '/commentLike', to: 'posts#commentLike'
+  post '/commentDisLike', to: 'posts#commentDisLike'
+  get '/hideComment', to: 'posts#hideComment'
 
   get '/users', to: 'users#index'
   get '/blacklist', to: 'blacklists#blacklist'##########

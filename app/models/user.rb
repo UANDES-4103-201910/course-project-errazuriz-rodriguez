@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
     has_one_attached :profpic
     has_many :messages
+    has_many :posts
+    has_many :comments, through: :posts
     validates :name, presence: true
     validates :lastname, presence: true
     validates :nick, presence: true

@@ -4,4 +4,6 @@ class Post < ApplicationRecord
     validates :description, presence: true
     validates :image, presence: true
     validates :location, presence: true
+    has_many :comments
+    belongs_to :users
 end

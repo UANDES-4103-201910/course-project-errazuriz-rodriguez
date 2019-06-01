@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     set_post
+    @cmt = Comment.new()
     @user = User.all
     @re = @post.id
     @comments = Comment.all.where(post_id: @re).order(:created_at)
@@ -52,7 +53,7 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
-  def update
+  def update 
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -106,7 +107,46 @@ class PostsController < ApplicationController
     end
     redirect_to Post.find(@pos)
   end
+  
+  def commentLike
+    @pos = params[:comment]
+    @pos1 = params[:post]
+    #revisar si el usuario ya dio like o dislike, si no ha dado a ninguno, nueva instancia de like
+    #si ya existia cambiar el boolean al contrario
+    @val = UserLikeComment.find_by(user_id: current_user.id, comment_id: @pos)
+    if @val != nil
+      if @val.like 
+        flash[:failure] = "Already Liked"
+      else
+        @val.update(like: true)
+      end
+    else
+      UserLikeComment.create(user_id: current_user.id, like: true, comment_id: @pos)
+    end
+    redirect_to Post.find(@pos1)
+  end
+  
+  def commentDisLike
+    #
+    @pos1 = params[:post]
+    @pos = params[:comment]
+    @val = UserLikeComment.find_by(user_id: current_user.id, comment_id: @pos)
+    if @val != nil
+      if !@val.like 
+        flash[:failure] = "Already Disliked"
+      else
+        @val.update(like: false)
+      end
+    else
+      UserLikeComment.create(user_id: current_user.id, like: false, comment_id: @pos)
+    end
+    redirect_to Post.find(@pos1)
+  end
 
+  def hideComment
+    #check if 
+    redirect_to Post.find(@pos1)
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -117,4 +157,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:user_id, :title, :description, :image, :location, :solved, :open, :dumpster, :deleted)
     end
+    
 end
