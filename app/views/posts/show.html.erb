@@ -55,7 +55,7 @@
             <td><%= (UserLikeComment.all.where(comment_id: cm.id).where(like: true)).length %>
             <td><%= (UserLikeComment.all.where(comment_id: cm.id).where(like: false)).length %>
             <td><%= button_to "Like", commentLike_path(:post => @post.id, :comment => cm.id), :class => "btn btn-primary btn-md" %>
-            <td><%= button_to "Disike", commentDisLike_path(:post => @post.id, :comment => cm.id), :class => "btn btn-primary btn-md" %>
+            <td><%= button_to "Dislike", commentDisLike_path(:post => @post.id, :comment => cm.id), :class => "btn btn-primary btn-md" %>
             <% if current_user.admin %>
               <td><%= link_to "Hide", hideComment_path(:post => @post.id, :comment => cm.id) %>
             <% end %>

@@ -144,7 +144,14 @@ class PostsController < ApplicationController
   end
 
   def hideComment
-    #check if 
+    #check if
+    @pos1 = params[:post]
+    if current_user.admin
+      com = params[:comment]
+      Comment.find_by(id: com).update(visible: false)
+    else
+      flash[:success] = "No tienes los permisos necesarios para realizar esta accion"
+    end
     redirect_to Post.find(@pos1)
   end
   private
