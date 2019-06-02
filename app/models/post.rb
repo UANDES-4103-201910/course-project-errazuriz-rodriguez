@@ -5,5 +5,5 @@ class Post < ApplicationRecord
     validates :image, presence: true
     validates :location, presence: true
     has_many :comments
-    belongs_to :users
+    belongs_to :users, optional: true
 end
