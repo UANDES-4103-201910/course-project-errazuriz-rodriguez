@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   post '/commentLike', to: 'posts#commentLike'
   post '/commentDisLike', to: 'posts#commentDisLike'
   get '/hideComment', to: 'posts#hideComment'
+  post '/deleteuser', to: 'useradmins#deleteuser'
+  post '/changepassword', to: 'changepasswords#changepassword'
 
   get '/users', to: 'users#index'
   get '/blacklist', to: 'blacklists#blacklist'##########
@@ -36,7 +38,7 @@ Rails.application.routes.draw do
   get '/adminsystem', to: 'adminsystems#adminsystem'##############
   get '/messages/conversation', to: 'messages#conversation'##########
   get '/messages', to: 'messages#chats'#############
-
+  
 
 
 

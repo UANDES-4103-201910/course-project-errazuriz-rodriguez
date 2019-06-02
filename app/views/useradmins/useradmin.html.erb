@@ -12,7 +12,7 @@
     <button class="btn btn-primary btn-md" onclick="window.location.href='users/new'">New User</button>
     </div>
     <br>
-    <table align="center">
+    <table align="center" class = "scroll">
       <tr>
         <th>User</th>
         <th>Role</th>
@@ -20,27 +20,33 @@
         <th>Password</th>
         <th>Delete</th>
       </tr>
-      <tr>
-        <td>User 1</td>
-        <td>User</td>
-        <td>3/3/2019</td>
-        <td><button class="btn btn-primary btn-md" onclick="window.location.href='changepassword'">Change</button></td>
-        <td><button class="btn btn-danger btn-md" onclick="">Delete</button></td>
-      </tr>
-      <tr>
-        <td>User 2</td>
-        <td>User</td>
-        <td>22/5/2015</td>
-        <td><button class="btn btn-primary btn-md" onclick="window.location.href='changepassword'">Change</button></td>
-        <td><button class="btn btn-danger btn-md" onclick="">Delete</button></td>
-      </tr>
-      <tr>
-        <td>User 3</td>
-        <td>User</td>
-        <td>5/10/2016</td>
-        <td><button class="btn btn-primary btn-md" onclick="window.location.href='changepassword'">Change</button></td>
-        <td><button class="btn btn-danger btn-md" onclick="">Delete</button></td>
-      </tr>
+      <% @users.each do |u|%>
+        <% if !u.deleted %>
+          <tr>
+            <td><%= u.name %></td>
+            <td>
+              <% if u.admin %>
+                Administrator
+              <% elsif u.superadmin %>
+                Super Administrator
+              <% else %>
+                User
+              <% end %>
+            </td>
+            <td>3/3/2019</td>
+            <td>
+              <% if !u.admin and !u.superadmin %>
+                <%= button_to "Change Password", changepassword_path(:user => u.id), :class => "btn btn-primary btn-md" %>
+              <% end %>
+            </td>
+            <td>
+              <% if !u.admin and !u.superadmin %>
+                <%= button_to "Delete", deleteuser_path(:user => u.id), :class => "btn btn-primary btn-md" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
     </table>
     <br>
 </body>

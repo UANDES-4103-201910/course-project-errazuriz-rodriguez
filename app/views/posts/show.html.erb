@@ -68,7 +68,7 @@
   <div>
     <%= form_for([@post, @post.comments.build]) do |f| %>
       <%= f.text_area :comment %>
-      <%= f.submit "Enviar comentario", :class => "btn btn-primary btn-md"%>
+      <%= f.submit "Send", :class => "btn btn-primary btn-md"%>
     <% end %>
   </div>
 </footer>
