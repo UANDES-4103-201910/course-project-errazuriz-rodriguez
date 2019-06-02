@@ -19,6 +19,8 @@
         <th>Last Access</th>
         <th>Password</th>
         <th>Delete</th>
+        <th>Blacklist</th>
+        <th>Bann</th>
       </tr>
       <% @users.each do |u|%>
         <% if !u.deleted %>
@@ -42,6 +44,16 @@
             <td>
               <% if !u.admin and !u.superadmin %>
                 <%= button_to "Delete", deleteuser_path(:user => u.id), :class => "btn btn-primary btn-md" %>
+              <% end %>
+            </td>
+            <td>
+              <% if !u.admin and !u.superadmin %>
+                <%= button_to "Blacklist", blacklistuser_path(:user => u.id), :class => "btn btn-primary btn-md" %>
+              <% end %>
+            </td>
+            <td>
+              <% if !u.admin and !u.superadmin %>
+                <%= button_to "Ban", banuser_path(:user => u.id), :class => "btn btn-primary btn-md" %>
               <% end %>
             </td>
           </tr>
