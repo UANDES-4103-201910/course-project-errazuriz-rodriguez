@@ -48,7 +48,7 @@
             </td>
             <td>
               <% if !u.admin and !u.superadmin %>
-                <%= button_to "Blacklist", blacklistuser_path(:user => u.id), :class => "btn btn-primary btn-md" %>
+                <%= button_to "Blacklist", blacklistuser_path(:user => u.id), :method => :patch, :class => "btn btn-primary btn-md" %>
               <% end %>
             </td>
             <td>
