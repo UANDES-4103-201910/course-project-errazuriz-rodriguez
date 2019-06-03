@@ -21,7 +21,7 @@ class UseradminsController < ApplicationController
     def blacklistuser
         @us = params[:user]
         @us1 = User.find_by(id: @us)
-        User.find(@us).update(:blacklist => true)
+        User.find(@us).update!(:blacklist => true)
         #@us1.update(blacklist: true)
         #redirect_to edit_user_path(:id => @us, :blacklist => true)
         redirect_back fallback_location: "/useradmins"

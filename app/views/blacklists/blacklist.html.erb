@@ -20,12 +20,12 @@
         <th>Action</th>
         
       </tr>
-      <tr>
-        <% @bl.each do |u|%>
+      <% @bl.each do |u|%>
+        <tr>
           <td><%= u.name %></td>
-          <td><%= button_to "Give Major Pardon", reedem_path(:user => u.id), :class => "btn btn-primary btn-md" %></td>
-        <% end %>
-      </tr>
+          <td><%= button_to "Give Major Pardon", redeem_path(:user => u.id), :class => "btn btn-primary btn-md" %></td>
+        </tr>
+      <% end %>
 
     </table>
     <br>

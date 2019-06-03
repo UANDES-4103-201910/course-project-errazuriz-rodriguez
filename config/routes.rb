@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   post '/blacklist', to: 'blacklists#blacklist'
   post '/banuser', to: 'useradmins#banuser'
   patch '/blacklistuser', to: 'useradmins#blacklistuser'
+  post '/redeem', to: 'blacklists#redeem'
 
   get '/users', to: 'users#index'
   get '/blacklist', to: 'blacklists#blacklist'##########
