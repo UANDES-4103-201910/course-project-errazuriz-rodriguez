@@ -37,7 +37,12 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @user.image %>
+  <% if @user.avatar.attached? %>
+    <%=image_tag @user.avatar.variant(resize: "100x100") %>
+  <% else %>
+    No Image
+  <% end %>
+  
 </p>
 
 

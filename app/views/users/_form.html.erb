@@ -106,7 +106,12 @@
     <div class="col-md-3">
       <div class="field">
       <%= form.label :image %>
-      <%= form.file_field :profpic %>
+      <% if @user.avatar.attached? %>
+    <%=image_tag @user.avatar.variant(resize: "100x100") %>
+  <% else %>
+    No Image
+  <% end %>
+      <%= form.file_field :avatar %>
       </div>
     </div>
 

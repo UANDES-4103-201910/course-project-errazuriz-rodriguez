@@ -13,19 +13,17 @@
     <div class= "r">
         <button class="btn btn-primary btn-md" onclick="window.location.href='users/1/edit'">Edit</button>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
+    
+
     <div class= "c">
-        <box>
-        </box>
+    
+    <%= image_tag @usr.avatar.variant(resize: "100x100") %>
+  
     </div>
     <br>
-    <br>
-    <br>
-    <br>
     <div class= "c">User Name: 
+    
+      
         <%= @usr.name %> <%= @usr.lastname %><br>
     <br>
     Email: 

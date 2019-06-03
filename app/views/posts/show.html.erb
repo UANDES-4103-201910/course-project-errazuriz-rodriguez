@@ -26,21 +26,28 @@
     <h1>Description</h1>
     <%= @post.description %>
   </article>
+
   <article>
-    <h1>Image</h1>
-    <%= @post.image %>
+  <h1>Images</h1>
+  <% (0...@post.postimages.count).each do |postimage| %>
+    <%= image_tag(@post.postimages[postimage].variant(resize: "200x200")) %>
+  <% end %>
   </article>
+
   <article>
     <h1>Location</h1>
     <%= @post.location %>
   </article>
+
+  <article>
+    <h1>Files</h1>
+    <% (0...@post.files.count).each do |file| %>
+      <%= link_to 'Download', @post.files[file], download:"" %>
+    <% end %>
+  </article>
+
   </div>
-</section>
-<section>
-  <h1>Files</h1>
-  <% @files.each do |f|%>
-    <article><%= f.file %></article>
-  <% end %>
+  
 </section>
 <footer>
   <h1>Comments</h1>
