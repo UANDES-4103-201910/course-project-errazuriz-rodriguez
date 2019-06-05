@@ -1,5 +1,6 @@
 class UseradminsController < ApplicationController
     before_action :check
+    before_action :is_admin
     def useradmin
         @users = User.all
     end
@@ -25,12 +26,5 @@ class UseradminsController < ApplicationController
         #@us1.update(blacklist: true)
         #redirect_to edit_user_path(:id => @us, :blacklist => true)
         redirect_back fallback_location: "/useradmins"
-    end
-    
-    def check
-        if !current_user.admin and !current_user.superadmin
-            flash[:failure] = "User without permission"
-            redirect_to User.find(current_user.id)
-        end
     end
 end

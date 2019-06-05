@@ -1,42 +1,45 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
+<div class = "c"><TC>Posts</TC></div>
 
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image</th>
-      <th>Location</th>
-      <th>Solved</th>
-      <th>Open</th>
-      <th>Dumpster</th>
-      <th>Deleted</th>
-      <th colspan="3"></th>
+      
     </tr>
   </thead>
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.user_id %></td>
-        <td><%= post.title %></td>
-        <td><%= post.description %></td>
-        <td><%= post.image %></td>
-        <td><%= post.location %></td>
-        <td><%= post.solved %></td>
-        <td><%= post.open %></td>
-        <td><%= post.dumpster %></td>
-        <td><%= post.deleted %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      
     <% end %>
   </tbody>
 </table>
+<% @posts.each do |post| %>
+  <div class = "row">
+    <%= link_to post do %>
+      <div class = "filled">
+        <td>
+          <% if post.postimages.length > 0%>
+            <%= image_tag(post.postimages[0].variant(resize: "200x200")) %>
+          <% else %>
+            <%= image_tag("noIMAGE.jpg", width: '199', heigth: '199')%>
+          <% end %>
+        </td>
+        <td>
+          <%= post.title%>
+        </td>
+        <td>
+          Likes: <%= post.user_like_posts.length%>
+        </td>
+        <td>
+          Open: <%= post.open %>
+        </td>
+      </div>
+    <% end  %>
+  </div>
+<% end %>
+
 
 <br>
 

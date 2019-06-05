@@ -7,5 +7,6 @@ class Post < ApplicationRecord
     has_many_attached :postimages
     has_many_attached :files
     has_many :comments
+    has_many :user_like_posts
     belongs_to :users, optional: true
 end

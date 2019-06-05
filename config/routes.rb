@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   devise_for :users do 
-    get '/users/sign_out' => 'devise/sessions#destroy' 
+    get '/users/sign_out' => 'devise/sessions#destroy'
     get '/users/sign_in' => 'devise/sessions#create'
     get '/users/sign_up' => 'devise/registrations#create'
   end
+
+  get '/posts/index', to: 'posts#index'
+  root to: 'homes#home'
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -45,9 +48,6 @@ Rails.application.routes.draw do
   
 
 
-
-
-  root to: 'homes#home'
 
   post '/users', to: 'users#create'
   post '/posts', to: 'posts#create'

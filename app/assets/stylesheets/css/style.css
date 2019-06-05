@@ -107,6 +107,26 @@ box {
 }
 .scroll{
   overflow-y:scroll;
-  height:100px;
+  height:300px;
   display:block;
+}
+.filled{
+  background-color: rgba(15, 113, 138, 0.836);
+  border-block-color: rgb(63, 62, 62);
+  height: 115px;
+  min-width: 50%;
+  display: inline-block;
+  overflow-wrap: break-word;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+.filled:visited{
+  color: none;
+  text-decoration: none;
+}
+.filled:hover{
+  text-decoration: none;
+  color: none;
 }

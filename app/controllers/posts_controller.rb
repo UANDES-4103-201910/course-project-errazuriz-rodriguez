@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.where(dumpster: false, deleted: false )
   end
 
   # GET /posts/1
@@ -15,9 +15,6 @@ class PostsController < ApplicationController
     @user = User.all
     @re = @post.id
     @comments = Comment.all.where(post_id: @re).order(:created_at)
-    #Comment.find_by(post_id: @post.id)
-    #hay que inicialixzar variables con todos los datos que necesiten los post de la base de datos 
-    # como likes, dislikes, imagenes, archivos, y comentarios
     @files = PostAttachment.all.where(post_id: @re)
     @likes = (UserLikePost.all.where(post_id: @re).where(like: true)).length
     @dislikes = (UserLikePost.all.where(post_id: @re).where(like: false)).length
@@ -76,10 +73,10 @@ class PostsController < ApplicationController
   end
 
   def likes
-    @pos = params[:post]
+    @pos23 = params[:post]
     #revisar si el usuario ya dio like o dislike, si no ha dado a ninguno, nueva instancia de like
     #si ya existia cambiar el boolean al contrario
-    @val = UserLikePost.find_by(user_id: current_user.id, post_id: @pos)
+    @val = UserLikePost.find_by(user_id: current_user.id, post_id: @pos23)
     if @val != nil
       if @val.like 
         flash[:failure] = "Already Liked"
@@ -87,15 +84,16 @@ class PostsController < ApplicationController
         @val.update(like: true)
       end
     else
-      UserLikePost.create(user_id: current_user.id, like: true, post_id: @pos)
+      #UserLikePost.create!(user_id: current_user.id, like: true, post_id: :this)
+      Post.find(@pos23).user_like_posts.create!(user_id: current_user.id, like: true, post_id: @pos23)
     end
-    redirect_to Post.find(@pos)
+    redirect_to Post.find(@pos23)
   end 
 
   def dislikes
     #idem al anterior
-    @pos = params[:post]
-    @val = UserLikePost.find_by(user_id: current_user.id, post_id: @pos)
+    @pos32 = params[:post]
+    @val = UserLikePost.find_by(user_id: current_user.id, post_id: @pos32)
     if @val != nil
       if !@val.like 
         flash[:failure] = "Already Disliked"
@@ -103,9 +101,9 @@ class PostsController < ApplicationController
         @val.update(like: false)
       end
     else
-      UserLikePost.create(user_id: current_user.id, like: false, post_id: @pos)
+      UserLikePost.create(user_id: current_user.id, like: false, post_id: @pos32)
     end
-    redirect_to Post.find(@pos)
+    redirect_to Post.find(@pos32)
   end
   
   def commentLike

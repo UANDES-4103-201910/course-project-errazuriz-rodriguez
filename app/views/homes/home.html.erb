@@ -10,37 +10,25 @@
         
     <br>
     <br>
-    <div class="row">
-        <div class="col-md-4"></div>
-        
-        <div class="col-md-4">User: <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+    <br>
+    <br>
+    <% if !user_signed_in? %>
+        <div class= "c">
+            <a href="passrec">Forgot your password?</a>
+            <br>
+            <br>
+            <%= button_to 'Log In', '/users/sign_in', class: "bttn1"%>
+
+            <br>
+            <button class="button2">Sign in with Google</button>
         </div>
-
-        <div class="col-md-4"></div>
-
-    </div>
-    <br>
-    <div class="row">
-        <div class="col-md-4"></div>
-        
-        <div class="col-md-4">Password:  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-        </div>
-
-        <div class="col-md-4"></div>
-    </div>
-    <br>
-    <br>
-    <div class= "c">
-    <a href="passrec">Forgot your password?</a>
-        <br>
-        <br>
-        <button onclick="window.location.href='userhome'" class="btn btn-primary btn-md">Login</button>
-        <button onclick="window.location.href='useradmin'" class="btn btn-primary btn-md">Admin Login</button>
-        <button onclick="window.location.href='adminsystem'" class="btn btn-primary btn-md">SA Login</button>
-        <br>
-        <br>
-        <button class="button2">Sign in with Google</button>
-    </div>
+    <% else %>
+        <table>
+            <div class = "c">
+                <%= link_to "Posts", posts_index_path(), class:  "btn btn-primary btn-md" %>
+            </div>
+        </table>
+    <% end %>
 </body>
 </html>
 
