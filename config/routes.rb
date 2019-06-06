@@ -10,13 +10,14 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
-  get 'session/new'
-  get 'session/create'
-  get 'session/destroy'
+
   resources :posts do
     resources :comments
   end
   resources :users
+
+  post '/postsearchs', to: 'postsearchs#search'
+  get '/postsearchs', to: 'postsearchs#postsearch'
   
   get '/likes', to: 'posts#likes'
   get '/dislikes', to: 'posts#dislikes'
