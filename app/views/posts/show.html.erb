@@ -50,8 +50,8 @@
   
 </section>
 <footer>
-  <h1>Comments</h1>
-  <table class = "scroll">
+  <div class = "c"><h1>Comments</h1></div>
+  <table class = "scroll" align = "center">
     <tbody>
       <% @comments.each do |cm| %>
         <% if cm.visible%>
@@ -63,7 +63,7 @@
             <td><%= (UserLikeComment.all.where(comment_id: cm.id).where(like: false)).length %>
             <td><%= button_to "Like", commentLike_path(:post => @post.id, :comment => cm.id), :class => "btn btn-success btn-md" %>
             <td><%= button_to "Dislike", commentDisLike_path(:post => @post.id, :comment => cm.id), :class => "btn btn-danger btn-md" %>
-            <% if :is_admin %>
+            <% if current_user.admin or current_user.superadmin %>
               <td><%= link_to "Hide", hideComment_path(:post => @post.id, :comment => cm.id) %>
             <% end %>
           </tr>
@@ -71,8 +71,8 @@
       <% end %>
     </tbody>
   </table>
-  <li class = "l"> Add new comment.</li>
-  <div>
+  <div class = "c"><li class = "c"> Add new comment.</li></div>
+  <div class = "c">
     <%= form_for([@post, @post.comments.build]) do |f| %>
       <%= f.text_area :comment %>
       <%= f.submit "Send", :class => "btn btn-success btn-md"%>

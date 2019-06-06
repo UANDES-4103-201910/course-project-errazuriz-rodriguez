@@ -31,6 +31,11 @@ Rails.application.routes.draw do
   patch '/blacklistuser', to: 'useradmins#blacklistuser'
   post '/redeem', to: 'blacklists#redeem'
 
+  post '/revokeadmin', to: 'adminsystems#revokeadmin'
+  post '/revokesuperadmin', to: 'adminsystems#revokesuperadmin'
+  post '/makeadmin', to: 'adminsystems#makeadmin'
+  post '/makesuperadmin', to: 'adminsystems#makesuperadmin'
+
   get '/users', to: 'users#index'
   get '/blacklist', to: 'blacklists#blacklist'##########
   get '/adminreg', to: 'adminregs#adminreg'###########

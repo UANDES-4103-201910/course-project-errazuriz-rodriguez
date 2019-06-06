@@ -13,41 +13,41 @@
     <br>
     <table align="center">
       <tr>
-        <th>Admin</th>
-        <th>Geofence</th>
-        <th>Last Access</th>
+        <th>Name</th>
+        <th>Admin?</th>
+        <th>SuperAdmin</th>
+        <th>Make/Revoke Admin</th>
+        <th>Make/Revoke SuperAdmin</th>
         <th>Edit</th>
         <th>Delete</th>
+        <th>Ban</th>
+        <th>Blacklist</th>
       </tr>
       <tr>
-        <td>User 1</td>
-        <td>Geo 1</td>
-        <td>3/3/2019</td>
-        <td><button class="btn btn-primary btn-md" onclick="window.location.href='users/1/edit'">Edit</button></td>
-        <td><button class="btn btn-danger btn-md" onclick="window.location.href=#">Delete</button></td>
-      </tr>
-      <tr>
-        <td>User 2</td>
-        <td>Geo 2</td>
-          <td>3/3/2019</td>
-        <td><button class="btn btn-primary btn-md" onclick="window.location.href=#">Edit</button></td>
-        <td><button class="btn btn-danger btn-md" onclick="window.location.href=#">Delete</button></td>
-      </tr>
-      <tr>
-        <td>User 3</td>
-        <td>Geo 3</td>
-        <td>5/10/2016</td>
-        <td><button class="btn btn-primary btn-md" onclick="window.location.href=#">Edit</button></td>
-        <td><button class="btn btn-danger btn-md" onclick="window.location.href=#">Delete</button></td>
+        <% @user.each do |u|%>
+          <tr>
+            <td><%= link_to u.name, u %></td>
+            <td><%= u.admin %></td>
+            <td><%= u.superadmin %></td>
+            <td>
+              <% if u.admin %>
+                <%= button_to "Revoke", revokeadmin_path(:user_id =>  u.id), :class => "btn btn-danger btn-md" %>
+              <% else %>
+                <%= button_to "Admin", makeadmin_path(:user_id =>  u.id), :class => "btn btn-primary btn-md" %>
+              <% end %>
+            </td>
+            <td>
+              <% if u.superadmin %>
+                <%= button_to "Revoke", revokesuperadmin_path(:user_id =>  u.id), :class => "btn btn-danger btn-md" %>
+              <% else %>
+                <%= button_to "SuperAdmin", makesuperadmin_path(:user_id =>  u.id), :class => "btn btn-primary btn-md" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
       </tr>
     </table>
-    <br>
-    <br>
-    <div align="center">
-    <button class="btn btn-primary btn-md" onclick="window.location.href='blacklist'">Blacklist</button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button class="btn btn-primary btn-md" onclick="window.location.href='dumpster'">Dumpster</button>
-    </div>
+
 </body>
  
 </html>

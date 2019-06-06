@@ -17,6 +17,7 @@ div.l {
 
 div.c {
   text-align: center;
+
 }
 
 div.r {
@@ -108,12 +109,31 @@ box {
 .scroll{
   overflow-y:scroll;
   height:300px;
+  width: fit-content;
   display:block;
   border-top: 1px solid #CCCCCC;
   border-right: 1px solid #333333;
   border-bottom: 1px solid #333333;
   border-left: 1px solid #CCCCCC;
 }
+
+.scroll2{
+  overflow-y:scroll;
+  height: 150;
+  width: fit-content;
+  min-width: 10%;
+  align-self: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  position: center;
+  display: block;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+}
+
 .filled{
   background-color: rgba(15, 113, 138, 0.836);
   border-block-color: rgb(63, 62, 62);
