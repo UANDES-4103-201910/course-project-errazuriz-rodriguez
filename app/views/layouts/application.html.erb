@@ -26,6 +26,12 @@
           <% else %>
             <%= button_to 'Log In', '/users/sign_in', class: "bttn1"%>
           <% end %>
+          <% if current_user.admin or current_user.superadmin %>
+            <%= link_to "Admin", '/useradmin/', class: "btn btn-md btn"%>
+          <% end %>
+          <% if current_user.superadmin %>
+            <%= link_to "Admin", '/adminsystem/', class: "btn btn-md btn"%>
+          <% end %>
         </div>
       </wrapper>
     </div>
