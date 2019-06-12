@@ -28,15 +28,23 @@ div.c {
 
 }
 
-.footer {
-  position: fixed;
-  left: 0;
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+  position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: gray;
-  color: white;
-  text-align: center;
+  height: 4rem;     
+  background: #696969;       /* Footer height */
 }
+
 
 div.r {
   text-align: right;

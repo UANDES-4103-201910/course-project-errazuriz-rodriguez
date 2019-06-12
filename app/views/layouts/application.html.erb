@@ -44,12 +44,26 @@
       <div class = "col-md-5">
       </div>
     </div>
+    <br>
   </head>
 
   <body>
+  <div id="page-container">
+   <div id="content-wrap">
+     <!-- all other page content -->
     <%= yield %>
+    <br>
+    
+  </div>
+  <footer id="footer">
+    <div class="c">
+      <p>Dev By Juan / Iñaki</p>
+    </div>
+  </footer>
+ </div>
   </body>
-  <div class="footer">
-  <p>Dev By Juan / Iñaki</p>
+  
+
+  
 </div>
 </html>
