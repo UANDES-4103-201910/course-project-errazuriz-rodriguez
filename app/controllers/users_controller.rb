@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    if current_user.superadmin
+      @users = User.all
+    else
+      flash[:success] = "NOt authorized"
+      redirect_to home_path
+    end
   end
 
   # GET /users/1
