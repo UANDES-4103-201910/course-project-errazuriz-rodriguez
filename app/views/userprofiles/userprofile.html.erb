@@ -16,40 +16,69 @@
     
 
     <div class= "c">
-    
-    <%= image_tag @usr.avatar.variant(resize: "100x100") %>
-  
-    </div>
-    <br>
-    <div class= "c">User Name: 
-    
-      
-        <%= @usr.name %> <%= @usr.lastname %><br>
-    <br>
-    Email: 
-        <%= @usr.email %><br>
-    <br>
-    City: 
-        <%= @usr.city %><br>
-    <br>
-    GPS: 
-        #####<br>
-    <br>
-    Country: 
-        <%= @usr.country %><br>
-    <br>
-    <p>Bio</p>
-    <br>
-        <textarea rows="5" cols="60">
-         </textarea>
-    <br>
+        <% if @usr.avatar.attached? %>
+            <%=image_tag @usr.avatar.variant(resize: "100x100") %>
+            <% else %>
+            No Image
+            <% end %>
         <br>
-    <button class="btn btn-primary btn-md" onclick="window.location.href='posts'">View Posts</button>
-    <br>
-    <br>
-    <button class="btn btn-primary btn-md" onclick="window.location.href=#">User Activity</button>
-    <br>
-    <br>
+        <br>
+
+        User Name: 
+            <%= @usr.name %> <%= @usr.lastname %><br>
+        <br>
+        Email: 
+            <%= @usr.email %><br>
+        <br>
+        City: 
+            <%= @usr.city %><br>
+        <br>
+        Location: 
+        <br>
+        <br>
+    </div>
+
+    <div class= "c">
+        <style>
+        
+        #map {
+            height: 200px;  
+            width: 100%;  
+        }
+        </style>
+    
+        <div id="map"></div>
+            <script>
+                function initMap() {
+                var uluru = {lat: -25.344, lng: 131.036};
+                var map = new google.maps.Map(
+                document.getElementById('map'), {zoom: 4, center: uluru});
+                var marker = new google.maps.Marker({position: uluru, map: map});
+                }
+            </script>
+            
+            <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB9EocpLO0L43BJBXB6LCr8MGkfxLH2Ie8&callback=initMap">
+            </script>
+    </div>
+    <div class= "c">
+        
+        <br>
+        Country: 
+            <%= @usr.country %><br>
+        <br>
+        <p>Bio</p>
+        <br>
+            <textarea rows="5" cols="60">
+            </textarea>
+        <br>
+            <br>
+        <button class="btn btn-primary btn-md" onclick="window.location.href='posts'">View Posts</button>
+        <br>
+        <br>
+        <button class="btn btn-primary btn-md" onclick="window.location.href=#">User Activity</button>
+        <br>
+        <br>
     </div>
     
     

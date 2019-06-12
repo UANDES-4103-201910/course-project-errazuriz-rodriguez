@@ -3,15 +3,17 @@
 <div class = "c"><TC>Posts</TC></div>
 <br>
 <% @posts.each do |post| %>
-  <div class = "row">
+  <div class = "row c">
     <%= link_to post do %>
-      <div class = "filled">
+      <div class = "">
         <td>
           <% if post.postimages.length > 0%>
-            <%= image_tag(post.postimages[0].variant(resize: "200x200")) %>
+            <%= image_tag(post.postimages[0].variant(resize: "150x150")) %>
           <% else %>
             <%= image_tag("noIMAGE.jpg", width: '199', heigth: '199')%>
           <% end %>
+        </td>
+        <td>
         </td>
         <td>
           <%= post.title%>
