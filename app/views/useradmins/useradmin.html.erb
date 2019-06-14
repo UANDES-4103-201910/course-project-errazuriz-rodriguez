@@ -37,22 +37,22 @@
             </td>
             <td>3/3/2019</td>
             <td>
-              <% if !u.admin and !u.superadmin %>
+              <% if (!u.admin and !u.superadmin) or (current_user.superadmin) %>
                 <%= button_to "Change Password", changepassword_path(:user => u.id), :class => "btn btn-primary btn-md" %>
               <% end %>
             </td>
             <td>
-              <% if !u.admin and !u.superadmin %>
+              <% if (!u.admin and !u.superadmin) or (current_user.superadmin) %>
                 <%= button_to "Delete", deleteuser_path(:user => u.id), :class => "btn btn-danger btn-md" %>
               <% end %>
             </td>
             <td>
-              <% if !u.admin and !u.superadmin %>
+              <% if (!u.admin and !u.superadmin) or (current_user.superadmin) %>
                 <%= button_to "Blacklist", blacklistuser_path(:user => u.id), :method => :patch, :class => "btn btn-danger btn-md" %>
               <% end %>
             </td>
             <td>
-              <% if !u.admin and !u.superadmin %>
+              <% if (!u.admin and !u.superadmin) or (current_user.superadmin) %>
                 <%= button_to "Ban", banuser_path(:user => u.id), :class => "btn btn-danger btn-md" %>
               <% end %>
             </td>

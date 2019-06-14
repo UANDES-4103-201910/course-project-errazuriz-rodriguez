@@ -19,6 +19,31 @@ class ApplicationController < ActionController::Base
         if !current_user.admin and !current_user.superadmin
             flash[:failure] = "User without permission"
             redirect_to User.find(current_user.id)
+        elsif current_user.admin
+            pos = UserPlace.all.where(user_id: current_user.id)
+            @ip = request.remote_ip
+            actual_pos = Geocoder.search(@ip).first.city
+            flash[:success] = actual_pos
+            v = false
+            if pos != nil
+                if pos.length <= 1
+                    if Geocoder.search(pos[0].location).first.city == actual_pos
+                        v = true
+                    end
+                else 
+                    pos.each do |p|
+                        if Geocoder.search(p.location).first.city == actual_pos
+                            v = true
+                        end
+                    end
+                end
+            else
+                v = true
+            end
+            if !v
+                #flash[:failure] = "Admin without current location authorization." 
+                redirect_to User.find(current_user.id)
+            end
         end
     end
 

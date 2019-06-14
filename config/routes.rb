@@ -51,7 +51,13 @@ Rails.application.routes.draw do
   get '/adminsystem', to: 'adminsystems#adminsystem'##############
   get '/messages/conversation', to: 'messages#conversation'##########
   get '/messages', to: 'messages#chats'#############
-  
+
+  get '/geofences', to: 'geofences#admins'
+  get '/geofences/viewadmin', to: 'geofences#viewadmin'
+  get '/geofences/addfences', to: 'geofences#addfences'
+  post '/def', to: 'geofences#removefence'
+  get '/as', to: 'geofences#as'
+  post '/checkfence', to: 'geofences#checkfence'
 
 
 
