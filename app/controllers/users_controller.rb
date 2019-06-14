@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if current_user.superadmin
       @users = User.all
     else
-      flash[:success] = "NOt authorized"
+      flash[:success] = "Not authorized"
       redirect_to home_path
     end
   end
@@ -16,6 +16,11 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
   end
+
+  def viewposts
+    
+  end
+
 
   # GET /users/new
   def new
