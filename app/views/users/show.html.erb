@@ -11,7 +11,7 @@
     </div>
     <hr>
     <div class= "r">
-        <% if current_user.admin or current_user.superadmin or current_user = @user %>
+        <% if current_user.admin or current_user.superadmin or current_user == @user %>
             <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary btn-md"%>
         <% end %>
       </div>
@@ -75,12 +75,29 @@
             </textarea>
         <br>
             <br>
-        <%= link_to "View Posts", view_post_path(@user), class: "btn btn-primary btn-md"%>
         <br>
         <br>
-        <button class="btn btn-primary btn-md" onclick="window.location.href=#">User Activity</button>
-        <br>
-        <br>
+
+    <table align="center">
+        <tr>
+            <th>Post Title</th>
+            <th>Action</th>
+        </tr>
+        <% @post.each do |p|%>
+            <tr>
+                <td><%= p.title %></td>
+                <td><%= link_to 'View', p, class: "btn btn-primary btn-md"%></td>
+            </tr>
+        <% end %>
+    </table>
+
+</body>
+
+    <br>
+    <br>
+    <button class="btn btn-primary btn-md" onclick="window.location.href=#">User Activity</button>
+    <br>
+    <br>
     </div>
     
     

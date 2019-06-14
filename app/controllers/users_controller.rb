@@ -15,12 +15,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @post = Post.all.where(user_id: @user.id)
   end
 
-  def viewposts
-    
-  end
-
+  
 
   # GET /users/new
   def new
